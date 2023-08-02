@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dr8i07k80j7so"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ugsf7"]
-[ext_resource type="Texture2D" uid="uid://bta3yjwltsmeh" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="2_ntp0x"]
+[ext_resource type="Texture2D" uid="uid://ckl5vphwbfyjm" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="2_ntp0x"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_b8bgj"]
 radius = 1.0
@@ -11,7 +11,7 @@ height = 2.0
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(208, 851)
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 script = ExtResource("1_ugsf7")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
@@ -27,4 +27,4 @@ range_z_min = 0
 range_z_max = 0
 shadow_enabled = true
 texture = ExtResource("2_ntp0x")
-texture_scale = 2.0
+texture_scale = 3.0

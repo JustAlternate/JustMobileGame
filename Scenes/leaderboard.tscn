@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://p18f3fkiwmmv"]
+[gd_scene load_steps=3 format=3 uid="uid://p18f3fkiwmmv"]
+
+[ext_resource type="Script" path="res://Scripts/leaderboard.gd" id="1_265uu"]
+[ext_resource type="LabelSettings" uid="uid://ej10redof27h" path="res://Scenes/forleaderboard.tres" id="1_gv4r7"]
 
 [node name="Leaderboard" type="Control"]
 layout_mode = 3
@@ -7,9 +10,75 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_265uu")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-layout_mode = 0
-offset_top = 293.0
-offset_right = 424.0
-offset_bottom = 593.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -150.0
+offset_right = 207.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+columns = 9
+
+[node name="Label" type="Label" parent="ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "Rank"
+label_settings = ExtResource("1_gv4r7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "Name "
+label_settings = ExtResource("1_gv4r7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "Score"
+label_settings = ExtResource("1_gv4r7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "dodge"
+label_settings = ExtResource("1_gv4r7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator4" type="VSeparator" parent="ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "powerups"
+label_settings = ExtResource("1_gv4r7")
+horizontal_alignment = 1
+vertical_alignment = 1

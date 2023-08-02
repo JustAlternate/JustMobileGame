@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dr8i07k80j7so"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_ugsf7"]
+[ext_resource type="Texture2D" uid="uid://bta3yjwltsmeh" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="2_ntp0x"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_b8bgj"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4163v"]
+
+[node name="player" type="CharacterBody2D"]
+position = Vector2(208, 851)
+scale = Vector2(2, 2)
+script = ExtResource("1_ugsf7")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(10, 10)
+mesh = SubResource("SphereMesh_b8bgj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4163v")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 2.0
+range_z_min = 0
+range_z_max = 0
+shadow_enabled = true
+texture = ExtResource("2_ntp0x")
+texture_scale = 2.0

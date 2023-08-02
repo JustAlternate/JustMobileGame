@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwbaw3kb3anh2"]
+
+[ext_resource type="Script" path="res://Scripts/gift.gd" id="1_4reud"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_j12ow"]
+height = 1.5
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u0nh4"]
+radius = 1.0
+height = 3.0
+
+[node name="gift" type="Area2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_4reud")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0.705882, 0.0784314, 1)
+position = Vector2(0, 1.19209e-07)
+scale = Vector2(2, 2)
+mesh = SubResource("CapsuleMesh_j12ow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_u0nh4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

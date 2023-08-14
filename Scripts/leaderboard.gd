@@ -12,7 +12,6 @@ func update_leaderboard():
 
 func _on_request_completed(result, response_code, headers, body):
   var json = JSON.parse_string(body.get_string_from_utf8())
-  print(json)
   draw_leaderboard(json)
 
 func draw_leaderboard(leaderboard):
@@ -47,7 +46,6 @@ func draw_leaderboard(leaderboard):
 
 func clear_leaderboard():
   var list_children = $ScrollContainer/GridContainer.get_children()
-  print(list_children)
   for i in range(len(list_children)):
     if i > 8:
       list_children[i].queue_free()

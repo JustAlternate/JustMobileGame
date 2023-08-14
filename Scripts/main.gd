@@ -1,6 +1,8 @@
 extends Node2D
 
 var score = 0
+var nbr_dodges = 0
+var nbr_powerups = 0
 var bullet = preload("res://Scenes/bullet.tscn")
 var player = preload("res://Scenes/player.tscn")
 var gift = preload("res://Scenes/gift.tscn")
@@ -15,7 +17,6 @@ var list_effects = {
     "size_decrease":Color(0,255,0),
     "lightup":Color(255,255,0)
 }
-    
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,6 +33,7 @@ func spawn_bullet():
     update_score_difficulty_and_spawn_gifts()
 
 func spawn_gift():
+    nbr_powerups+=1
     var gift_instance = gift.instantiate()
     gift_instance.type = list_effects.keys()[randi_range(0,len(list_effects)-1)]
     gift_instance.get_node("MeshInstance2D").modulate = list_effects[gift_instance.type]
@@ -92,17 +94,13 @@ func _on_gameover_button_pressed():
 func dying():
   if not dead:
     dead = true
-    var json = JSON.stringify({"name":"JustAlternate","score":score,"dodges":20,"powerups":20})
-    var headers = ["Content-Type: application/json"]
-    var url = "https://justalternate.fr:8082/add_score"
-    $HTTPRequest.request(url, headers, HTTPClient.METHOD_POST, json)
-
     $GAMEOVER.visible = true
     $GAMEOVER.text = "GAME OVER !\nYour Score is : "+str(score)
     $GAMEOVER_BUTTON.visible = true
     $Leaderboard.update_leaderboard()
     $Leaderboard.visible = true
     $player/PointLight2D.texture_scale = 10
+    apply_score(score,nbr_dodges,nbr_powerups)
 
 func _on_left_button_down():
     $player.direction = -1
@@ -112,3 +110,43 @@ func _on_right_button_down():
     $player.direction = 1
 func _on_right_button_up():
     $player.direction = 0
+
+func usernameExist() -> bool:
+    return(FileAccess.file_exists("res://username.txt"))
+
+func createUsernameFile(username):
+    var usernameFile = FileAccess.open("res://username.txt", FileAccess.WRITE)
+    var json_to_save = JSON.stringify({"name":username})
+    usernameFile.store_line(json_to_save)
+    usernameFile.close()
+    
+func loadUsernameFile():
+    var usernameFile = FileAccess.open("res://username.txt", FileAccess.READ)
+    return (JSON.parse_string(usernameFile.get_line()))["name"]
+
+func apply_score(score, nbr_dodges, nbr_powerups):
+    var name = "None"
+    if usernameExist():
+        name = loadUsernameFile()
+    
+    else:
+        $UsernameInput.visible = true
+        $GAMEOVER_BUTTON.visible = false
+        return
+        
+    var json = JSON.stringify({"name":name, "score":score,"dodges":nbr_dodges,"powerups":nbr_powerups})
+    var headers = ["Content-Type: application/json"]
+    var url = "https://justalternate.fr:8082/add_score"
+    $HTTPRequest.request(url, headers, HTTPClient.METHOD_POST, json)
+
+func username_filled():
+    $UsernameInput.visible = false
+    createUsernameFile($UsernameInput.text)
+    $GAMEOVER_BUTTON.visible = true
+    apply_score(score, nbr_dodges, nbr_powerups)
+    $Leaderboard.update_leaderboard()
+
+func _on_button_pressed():
+    username_filled()
+func _on_username_input_text_submitted(new_text):
+    username_filled()

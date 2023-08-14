@@ -36,6 +36,7 @@ offset_bottom = 942.0
 color = Color(0.306923, 0.306923, 0.306923, 1)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Score" type="Label" parent="."]
@@ -108,9 +109,29 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 text = ">"
 
+[node name="UsernameInput" type="LineEdit" parent="."]
+visible = false
+offset_left = 110.0
+offset_top = 400.0
+offset_right = 323.0
+offset_bottom = 441.0
+placeholder_text = "Enter your username here"
+alignment = 1
+max_length = 15
+
+[node name="Button" type="Button" parent="UsernameInput"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 48.0
+offset_right = 137.0
+offset_bottom = 89.0
+text = "Send"
+
 [connection signal="button_down" from="GAMEOVER_BUTTON" to="." method="_on_gameover_button_button_down"]
 [connection signal="pressed" from="GAMEOVER_BUTTON" to="." method="_on_gameover_button_pressed"]
 [connection signal="button_down" from="left" to="." method="_on_left_button_down"]
 [connection signal="button_up" from="left" to="." method="_on_left_button_up"]
 [connection signal="button_down" from="right" to="." method="_on_right_button_down"]
 [connection signal="button_up" from="right" to="." method="_on_right_button_up"]
+[connection signal="text_submitted" from="UsernameInput" to="." method="_on_username_input_text_submitted"]
+[connection signal="pressed" from="UsernameInput/Button" to="." method="_on_button_pressed"]

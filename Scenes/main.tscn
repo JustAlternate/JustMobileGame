@@ -36,7 +36,6 @@ offset_bottom = 942.0
 color = Color(0.306923, 0.306923, 0.306923, 1)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Score" type="Label" parent="."]
@@ -45,41 +44,6 @@ offset_bottom = 937.0
 label_settings = SubResource("LabelSettings_xwqsf")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="GAMEOVER" type="Label" parent="."]
-visible = false
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 8.0
-offset_top = 150.5
-offset_right = 424.0
-offset_bottom = 211.5
-grow_vertical = 2
-size_flags_horizontal = 4
-text = "GAME OVER !"
-label_settings = SubResource("LabelSettings_uq7el")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="GAMEOVER_BUTTON" type="Button" parent="."]
-visible = false
-offset_top = 592.0
-offset_right = 424.0
-offset_bottom = 757.0
-theme = SubResource("Theme_ig4op")
-action_mode = 0
-shortcut_feedback = false
-shortcut_in_tooltip = false
-text = "RETRY"
-icon_alignment = 1
-
-[node name="Leaderboard" parent="." instance=ExtResource("4_k0mko")]
-visible = false
-offset_left = 8.0
-offset_top = 243.0
-offset_right = 414.0
-offset_bottom = 575.0
 
 [node name="gifts" type="Node2D" parent="."]
 script = ExtResource("2_nemx7")
@@ -90,9 +54,9 @@ script = ExtResource("1_xgamk")
 [node name="left" type="Button" parent="."]
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 20.0
+offset_left = 36.0
 offset_top = 791.0
-offset_right = 50.0
+offset_right = 66.0
 offset_bottom = 822.0
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -101,16 +65,59 @@ text = "<"
 [node name="right" type="Button" parent="."]
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 344.0
+offset_left = 329.0
 offset_top = 791.0
-offset_right = 374.0
+offset_right = 359.0
 offset_bottom = 822.0
 grow_vertical = 2
 scale = Vector2(2, 2)
 text = ">"
 
-[node name="UsernameInput" type="LineEdit" parent="."]
+[node name="GameOver" type="Control" parent="."]
 visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = 130.5
+offset_right = 424.0
+offset_bottom = 191.5
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "GAME OVER !"
+label_settings = SubResource("LabelSettings_uq7el")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GAMEOVER_BUTTON" type="Button" parent="GameOver"]
+layout_mode = 0
+offset_top = 592.0
+offset_right = 424.0
+offset_bottom = 757.0
+theme = SubResource("Theme_ig4op")
+action_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "RETRY"
+icon_alignment = 1
+
+[node name="Leaderboard" parent="GameOver" instance=ExtResource("4_k0mko")]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 243.0
+offset_right = 414.0
+offset_bottom = 575.0
+
+[node name="UsernameInput" type="LineEdit" parent="GameOver"]
+visible = false
+layout_mode = 0
 offset_left = 110.0
 offset_top = 400.0
 offset_right = 323.0
@@ -119,19 +126,19 @@ placeholder_text = "Enter your username here"
 alignment = 1
 max_length = 15
 
-[node name="Button" type="Button" parent="UsernameInput"]
+[node name="ResetName" type="Button" parent="GameOver"]
 layout_mode = 0
-offset_left = 72.0
-offset_top = 48.0
-offset_right = 137.0
-offset_bottom = 89.0
-text = "Send"
+offset_left = 313.0
+offset_top = 10.0
+offset_right = 415.0
+offset_bottom = 41.0
+text = "Reset Name"
 
-[connection signal="button_down" from="GAMEOVER_BUTTON" to="." method="_on_gameover_button_button_down"]
-[connection signal="pressed" from="GAMEOVER_BUTTON" to="." method="_on_gameover_button_pressed"]
 [connection signal="button_down" from="left" to="." method="_on_left_button_down"]
 [connection signal="button_up" from="left" to="." method="_on_left_button_up"]
 [connection signal="button_down" from="right" to="." method="_on_right_button_down"]
 [connection signal="button_up" from="right" to="." method="_on_right_button_up"]
-[connection signal="text_submitted" from="UsernameInput" to="." method="_on_username_input_text_submitted"]
-[connection signal="pressed" from="UsernameInput/Button" to="." method="_on_button_pressed"]
+[connection signal="button_down" from="GameOver/GAMEOVER_BUTTON" to="." method="_on_gameover_button_button_down"]
+[connection signal="pressed" from="GameOver/GAMEOVER_BUTTON" to="." method="_on_gameover_button_pressed"]
+[connection signal="text_submitted" from="GameOver/UsernameInput" to="." method="_on_username_input_text_submitted"]
+[connection signal="pressed" from="GameOver/ResetName" to="." method="_on_reset_name_pressed"]

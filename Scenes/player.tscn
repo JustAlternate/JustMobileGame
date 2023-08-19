@@ -1,11 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://dr8i07k80j7so"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ugsf7"]
-[ext_resource type="Texture2D" uid="uid://bta3yjwltsmeh" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="2_ntp0x"]
+[ext_resource type="Texture2D" uid="uid://ckl5vphwbfyjm" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="2_ntp0x"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_b8bgj"]
+uv2_padding = 1.0
 radius = 1.0
 height = 2.0
+radial_segments = 16
+rings = 16
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4163v"]
 
@@ -22,6 +25,7 @@ mesh = SubResource("SphereMesh_b8bgj")
 shape = SubResource("CircleShape2D_4163v")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+texture_filter = 1
 energy = 2.0
 range_z_min = 0
 range_z_max = 0

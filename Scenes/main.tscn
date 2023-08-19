@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7b2hquiphaap"]
+[gd_scene load_steps=14 format=3 uid="uid://c7b2hquiphaap"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_lohf0"]
 [ext_resource type="Script" path="res://Scripts/bullets.gd" id="1_xgamk"]
@@ -8,6 +8,20 @@
 [sub_resource type="LabelSettings" id="LabelSettings_xwqsf"]
 font_size = 120
 font_color = Color(1, 1, 1, 0.321569)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgkrc"]
+bg_color = Color(0.501961, 0.505882, 0.505882, 0.258824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bv7v2"]
+bg_color = Color(0.501961, 0.505882, 0.505882, 0.168627)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8ejo"]
+bg_color = Color(0.501961, 0.505882, 0.505882, 0.392157)
+
+[sub_resource type="Theme" id="Theme_4skkw"]
+Button/styles/hover = SubResource("StyleBoxFlat_qgkrc")
+Button/styles/normal = SubResource("StyleBoxFlat_bv7v2")
+Button/styles/pressed = SubResource("StyleBoxFlat_l8ejo")
 
 [sub_resource type="SystemFont" id="SystemFont_gdc0l"]
 
@@ -36,11 +50,15 @@ offset_bottom = 942.0
 color = Color(0.306923, 0.306923, 0.306923, 1)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Score" type="Label" parent="."]
+layout_direction = 1
 offset_right = 424.0
-offset_bottom = 937.0
+offset_bottom = 942.0
+size_flags_horizontal = 4
+text = "0"
 label_settings = SubResource("LabelSettings_xwqsf")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -52,25 +70,30 @@ script = ExtResource("2_nemx7")
 script = ExtResource("1_xgamk")
 
 [node name="left" type="Button" parent="."]
+texture_filter = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 36.0
-offset_top = 791.0
-offset_right = 66.0
-offset_bottom = 822.0
+offset_right = 53.0
+offset_bottom = 236.0
 grow_vertical = 2
-scale = Vector2(2, 2)
+scale = Vector2(4, 4)
+focus_mode = 0
+theme = SubResource("Theme_4skkw")
+action_mode = 0
 text = "<"
 
 [node name="right" type="Button" parent="."]
+texture_filter = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 329.0
-offset_top = 791.0
-offset_right = 359.0
-offset_bottom = 822.0
+offset_left = 212.0
+offset_right = 265.0
+offset_bottom = 236.0
 grow_vertical = 2
-scale = Vector2(2, 2)
+scale = Vector2(4, 4)
+focus_mode = 0
+theme = SubResource("Theme_4skkw")
+action_mode = 0
 text = ">"
 
 [node name="GameOver" type="Control" parent="."]

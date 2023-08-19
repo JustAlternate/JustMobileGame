@@ -25,7 +25,7 @@ Button/styles/pressed = SubResource("StyleBoxFlat_l8ejo")
 
 [sub_resource type="SystemFont" id="SystemFont_gdc0l"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_uq7el"]
+[sub_resource type="LabelSettings" id="LabelSettings_tyjvs"]
 font = SubResource("SystemFont_gdc0l")
 font_size = 42
 font_color = Color(0.620017, 0.0814226, 0.088727, 1)
@@ -115,7 +115,7 @@ offset_bottom = 191.5
 grow_vertical = 2
 size_flags_horizontal = 4
 text = "GAME OVER !"
-label_settings = SubResource("LabelSettings_uq7el")
+label_settings = SubResource("LabelSettings_tyjvs")
 horizontal_alignment = 1
 vertical_alignment = 1
 

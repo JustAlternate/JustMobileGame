@@ -9,8 +9,7 @@ const gift = preload("res://Scenes/gift.tscn")
 const flying_label_script = preload("res://Scripts/flying_label.gd")
 var player_instance = player.instantiate()
 var dont_send = false
-
-@export var time_before_next_bullet_spawn:float = 0.7
+var time_before_next_bullet_spawn:float = 0.7
 var spawning_bullet = false
 var dead = false
 
@@ -49,18 +48,16 @@ func receive_gift(type):
 	label_instance.text = type
 	label_instance.set_script(flying_label_script)
 	label_instance.set_process(true)
-	label_instance.speed = $gifts.speed
+	label_instance.speed = 150
 	label_instance.color = list_effects[type]
 	add_child(label_instance)
 	
 	if type == "size_decrease":
-		score += 5
 		$player.scale.x -= $player.scale.x/15
 		$player.scale.y -= $player.scale.y/15
 		$player.speed -= $player.speed/15
 		$player/PointLight2D.texture_scale += $player/PointLight2D.texture_scale/15
 	if type == "lightup":
-		score += 5
 		$player/PointLight2D.texture_scale+=0.5
 	
 	await get_tree().create_timer(1).timeout
@@ -71,8 +68,7 @@ func update_score_difficulty_and_spawn_gifts():
 	if not(dead):
 		score += 1
 		if len($Score.text) < len(str(score)):
-			print("herer")
-			$Score.label_settings.font_size-=10
+			$Score.label_settings.font_size = $Score.label_settings.font_size - $Score.label_settings.font_size/5
 
 		$Score.text = str(score)
 		if score%20==0:
@@ -83,7 +79,7 @@ func update_score_difficulty_and_spawn_gifts():
 		if score%15==0:
 			spawn_gift()
 		if score%5==0:
-			$player/PointLight2D.texture_scale -= 0.05
+			$player/PointLight2D.texture_scale -= 0.08
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if not spawning_bullet and not dead:

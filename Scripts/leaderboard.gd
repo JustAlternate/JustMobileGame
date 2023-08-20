@@ -46,6 +46,6 @@ func draw_leaderboard(leaderboard):
 func clear_leaderboard():
 	var list_children = $ScrollContainer/GridContainer.get_children()
 	for i in range(len(list_children)):
-		if i > 8:
+		if i > 8: # Pour pas effacer les placeholders
 			list_children[i].queue_free()
 

@@ -18,7 +18,7 @@ scale = Vector2(3, 3)
 script = ExtResource("1_ugsf7")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-scale = Vector2(10, 10)
+scale = Vector2(8, 8)
 mesh = SubResource("SphereMesh_b8bgj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

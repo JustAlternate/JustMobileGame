@@ -1,0 +1,128 @@
+[gd_scene load_steps=13 format=3 uid="uid://d3x10nkw5370i"]
+
+[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_1kvxk"]
+[ext_resource type="Script" path="res://Scripts/gifts.gd" id="2_8eb68"]
+[ext_resource type="Script" path="res://Scripts/bullets.gd" id="3_pmapo"]
+[ext_resource type="AudioStream" uid="uid://bftsaq6tk53ig" path="res://Assets/My Chemical Romance - Helena (8-bit Cover).mp3" id="5_h3bos"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgkrc"]
+bg_color = Color(0.501961, 0.505882, 0.505882, 0.258824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bv7v2"]
+bg_color = Color(0.501961, 0.505882, 0.505882, 0.168627)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8ejo"]
+bg_color = Color(0.501961, 0.505882, 0.505882, 0.392157)
+
+[sub_resource type="Theme" id="Theme_4skkw"]
+Button/styles/hover = SubResource("StyleBoxFlat_qgkrc")
+Button/styles/normal = SubResource("StyleBoxFlat_bv7v2")
+Button/styles/pressed = SubResource("StyleBoxFlat_l8ejo")
+
+[sub_resource type="SystemFont" id="SystemFont_gdc0l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tyjvs"]
+font = SubResource("SystemFont_gdc0l")
+font_size = 42
+font_color = Color(0.620017, 0.0814226, 0.088727, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_hw507"]
+
+[sub_resource type="Theme" id="Theme_ig4op"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/constants/outline_size = 12
+Button/font_sizes/font_size = 100
+Button/fonts/font = SubResource("SystemFont_hw507")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_1kvxk")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 424.0
+offset_bottom = 942.0
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0, 0, 0, 1)
+
+[node name="gifts" type="Node2D" parent="."]
+script = ExtResource("2_8eb68")
+
+[node name="bullets" type="Node2D" parent="."]
+script = ExtResource("3_pmapo")
+
+[node name="left" type="Button" parent="."]
+texture_filter = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 53.0
+offset_bottom = 236.0
+grow_vertical = 2
+scale = Vector2(4, 4)
+focus_mode = 0
+theme = SubResource("Theme_4skkw")
+action_mode = 0
+text = "<"
+
+[node name="right" type="Button" parent="."]
+texture_filter = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 212.0
+offset_right = 265.0
+offset_bottom = 236.0
+grow_vertical = 2
+scale = Vector2(4, 4)
+focus_mode = 0
+theme = SubResource("Theme_4skkw")
+action_mode = 0
+text = ">"
+
+[node name="GameOver" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = 130.5
+offset_right = 424.0
+offset_bottom = 191.5
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "GAME OVER !"
+label_settings = SubResource("LabelSettings_tyjvs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GAMEOVER_BUTTON" type="Button" parent="GameOver"]
+layout_mode = 0
+offset_top = 592.0
+offset_right = 424.0
+offset_bottom = 757.0
+theme = SubResource("Theme_ig4op")
+action_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "RETRY"
+icon_alignment = 1
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_h3bos")
+
+[connection signal="button_down" from="left" to="." method="_on_left_button_down"]
+[connection signal="button_up" from="left" to="." method="_on_left_button_up"]
+[connection signal="button_down" from="right" to="." method="_on_right_button_down"]
+[connection signal="button_up" from="right" to="." method="_on_right_button_up"]
+[connection signal="button_down" from="GameOver/GAMEOVER_BUTTON" to="." method="_on_gameover_button_button_down"]
+[connection signal="pressed" from="GameOver/GAMEOVER_BUTTON" to="." method="_on_gameover_button_pressed"]

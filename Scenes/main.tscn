@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7b2hquiphaap"]
+[gd_scene load_steps=14 format=3 uid="uid://cjm05ogvrjl20"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_lohf0"]
 [ext_resource type="Script" path="res://Scripts/bullets.gd" id="1_xgamk"]
@@ -47,7 +47,7 @@ script = ExtResource("1_lohf0")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 424.0
 offset_bottom = 942.0
-color = Color(0.306923, 0.306923, 0.306923, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false

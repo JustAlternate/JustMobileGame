@@ -21,3 +21,8 @@ https://github.com/JustAlternate/JustMobileGame/assets/64951265/4bff16ba-b81a-4f
 And the leaderboard : 
 
 [![JustMobileGame's leaderboard](/leaderboard.png)
+
+# Installation
+
+The game is only available for android and the apk can be downloaded here : https://justalternate.fr/Godot_games/MonJeuWolaCPasDuHack.apk
+(make sure to allow non recognized apk)

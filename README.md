@@ -6,15 +6,17 @@ It is a game of infinite raining red bullets in which the player has to survive 
 
 In the end (when the player die) there is a leaderboard with everyone scores.
 
-![game_preview](game_preview.mp4)
+https://github.com/JustAlternate/JustMobileGame/assets/64951265/e2255d46-dc50-4ff6-8833-5939cd5be6b3
 
 I also implemented powerups :
 
 - Size decrease.
-![](game_preview_size_decrease.mp4)
+
+https://github.com/JustAlternate/JustMobileGame/assets/64951265/302140c4-8e5d-47b6-8a1a-197b194de696
 
 - Light up.
-![](game_preview_light_up.mp4)
+
+https://github.com/JustAlternate/JustMobileGame/assets/64951265/4bff16ba-b81a-4f26-a53b-81f984c50e1c
 
 And the leaderboard : 
 

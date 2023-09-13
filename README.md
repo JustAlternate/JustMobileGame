@@ -6,7 +6,7 @@ It is a game of infinite raining red bullets in which the player has to survive 
 
 In the end (when the player die) there is a leaderboard with everyone scores.
 
-![](game_preview.mp4)
+![game_preview](game_preview.mp4)
 
 I also implemented powerups :
 

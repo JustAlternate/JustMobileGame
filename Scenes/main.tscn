@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7b2hquiphaap"]
+[gd_scene load_steps=16 format=3 uid="uid://c7b2hquiphaap"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_lohf0"]
 [ext_resource type="Script" path="res://Scripts/bullets.gd" id="1_xgamk"]
@@ -30,14 +30,23 @@ font = SubResource("SystemFont_gdc0l")
 font_size = 42
 font_color = Color(0.620017, 0.0814226, 0.088727, 1)
 
-[sub_resource type="SystemFont" id="SystemFont_hw507"]
+[sub_resource type="SystemFont" id="SystemFont_lnmdu"]
+
+[sub_resource type="Theme" id="Theme_ui70k"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/constants/outline_size = 12
+Button/font_sizes/font_size = 70
+Button/fonts/font = SubResource("SystemFont_lnmdu")
+
+[sub_resource type="SystemFont" id="SystemFont_h57wo"]
 
 [sub_resource type="Theme" id="Theme_ig4op"]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_outline_color = Color(1, 1, 1, 1)
-Button/constants/outline_size = 12
-Button/font_sizes/font_size = 100
-Button/fonts/font = SubResource("SystemFont_hw507")
+Button/constants/outline_size = 2
+Button/font_sizes/font_size = 20
+Button/fonts/font = SubResource("SystemFont_h57wo")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_lohf0")
@@ -97,7 +106,6 @@ action_mode = 0
 text = ">"
 
 [node name="GameOver" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -123,12 +131,24 @@ vertical_alignment = 1
 layout_mode = 0
 offset_top = 592.0
 offset_right = 424.0
-offset_bottom = 757.0
-theme = SubResource("Theme_ig4op")
+offset_bottom = 696.0
+theme = SubResource("Theme_ui70k")
 action_mode = 0
 shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "RETRY"
+icon_alignment = 1
+
+[node name="back_to_menu" type="Button" parent="GameOver"]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 101.0
+offset_bottom = 54.0
+theme = SubResource("Theme_ig4op")
+action_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "<= MENU"
 icon_alignment = 1
 
 [node name="Leaderboard" parent="GameOver" instance=ExtResource("4_k0mko")]
@@ -163,5 +183,6 @@ text = "Reset Name"
 [connection signal="button_up" from="right" to="." method="_on_right_button_up"]
 [connection signal="button_down" from="GameOver/GAMEOVER_BUTTON" to="." method="_on_gameover_button_button_down"]
 [connection signal="pressed" from="GameOver/GAMEOVER_BUTTON" to="." method="_on_gameover_button_pressed"]
+[connection signal="pressed" from="GameOver/back_to_menu" to="." method="_on_back_to_menu_pressed"]
 [connection signal="text_submitted" from="GameOver/UsernameInput" to="." method="_on_username_input_text_submitted"]
 [connection signal="pressed" from="GameOver/ResetName" to="." method="_on_reset_name_pressed"]

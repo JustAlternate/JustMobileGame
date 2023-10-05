@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://busgepgeh6w34"]
+[gd_scene load_steps=15 format=3 uid="uid://busgepgeh6w34"]
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_1kvxk"]
 [ext_resource type="Script" path="res://Scripts/gifts.gd" id="2_8eb68"]
 [ext_resource type="Script" path="res://Scripts/bullets.gd" id="3_pmapo"]
-[ext_resource type="AudioStream" uid="uid://c1vlxfmstnhyw" path="res://Assets/My Chemical Romance - Helena (8-bit Cover).mp3" id="5_h3bos"]
+[ext_resource type="AudioStream" uid="uid://bftsaq6tk53ig" path="res://Assets/My Chemical Romance - Helena (8-bit Cover).mp3" id="5_h3bos"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgkrc"]
 bg_color = Color(0.501961, 0.505882, 0.505882, 0.258824)
@@ -34,6 +34,15 @@ Button/colors/font_outline_color = Color(1, 1, 1, 1)
 Button/constants/outline_size = 12
 Button/font_sizes/font_size = 100
 Button/fonts/font = SubResource("SystemFont_hw507")
+
+[sub_resource type="SystemFont" id="SystemFont_lnmdu"]
+
+[sub_resource type="Theme" id="Theme_6jnii"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/constants/outline_size = 2
+Button/font_sizes/font_size = 20
+Button/fonts/font = SubResource("SystemFont_lnmdu")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_1kvxk")
@@ -117,6 +126,17 @@ shortcut_in_tooltip = false
 text = "RETRY"
 icon_alignment = 1
 
+[node name="back_to_menu" type="Button" parent="GameOver"]
+offset_left = 4.0
+offset_right = 101.0
+offset_bottom = 54.0
+theme = SubResource("Theme_6jnii")
+action_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "<= MENU"
+icon_alignment = 1
+
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_h3bos")
 
@@ -126,3 +146,5 @@ stream = ExtResource("5_h3bos")
 [connection signal="button_up" from="right" to="." method="_on_right_button_up"]
 [connection signal="button_down" from="GameOver/GAMEOVER_BUTTON" to="." method="_on_gameover_button_button_down"]
 [connection signal="pressed" from="GameOver/GAMEOVER_BUTTON" to="." method="_on_gameover_button_pressed"]
+[connection signal="pressed" from="GameOver/back_to_menu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]

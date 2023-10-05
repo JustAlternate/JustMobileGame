@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dr8i07k80j7so"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ugsf7"]
-[ext_resource type="Texture2D" uid="uid://bta3yjwltsmeh" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="2_ntp0x"]
+[ext_resource type="Texture2D" uid="uid://ckl5vphwbfyjm" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="2_ntp0x"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_b8bgj"]
 uv2_padding = 1.0
@@ -18,7 +18,7 @@ scale = Vector2(3, 3)
 script = ExtResource("1_ugsf7")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-scale = Vector2(8, 8)
+scale = Vector2(10, 10)
 mesh = SubResource("SphereMesh_b8bgj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

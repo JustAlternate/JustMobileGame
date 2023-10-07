@@ -43,7 +43,7 @@ offset_top = 525.0
 offset_right = 424.0
 offset_bottom = 658.0
 theme = SubResource("Theme_wunao")
-text = "Music based"
+text = "Adventure"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7b2hquiphaap"]
+[gd_scene load_steps=15 format=3 uid="uid://c7b2hquiphaap"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_lohf0"]
 [ext_resource type="Script" path="res://Scripts/bullets.gd" id="1_xgamk"]
@@ -9,9 +9,6 @@
 font_size = 120
 font_color = Color(1, 1, 1, 0.321569)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgkrc"]
-bg_color = Color(0.501961, 0.505882, 0.505882, 0.258824)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bv7v2"]
 bg_color = Color(0.501961, 0.505882, 0.505882, 0.168627)
 
@@ -19,7 +16,7 @@ bg_color = Color(0.501961, 0.505882, 0.505882, 0.168627)
 bg_color = Color(0.501961, 0.505882, 0.505882, 0.392157)
 
 [sub_resource type="Theme" id="Theme_4skkw"]
-Button/styles/hover = SubResource("StyleBoxFlat_qgkrc")
+Button/styles/hover = SubResource("StyleBoxFlat_bv7v2")
 Button/styles/normal = SubResource("StyleBoxFlat_bv7v2")
 Button/styles/pressed = SubResource("StyleBoxFlat_l8ejo")
 
@@ -39,14 +36,14 @@ Button/constants/outline_size = 12
 Button/font_sizes/font_size = 70
 Button/fonts/font = SubResource("SystemFont_lnmdu")
 
-[sub_resource type="SystemFont" id="SystemFont_h57wo"]
+[sub_resource type="SystemFont" id="SystemFont_e0p5k"]
 
 [sub_resource type="Theme" id="Theme_ig4op"]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_outline_color = Color(1, 1, 1, 1)
 Button/constants/outline_size = 2
 Button/font_sizes/font_size = 20
-Button/fonts/font = SubResource("SystemFont_h57wo")
+Button/fonts/font = SubResource("SystemFont_e0p5k")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_lohf0")
@@ -106,6 +103,7 @@ action_mode = 0
 text = ">"
 
 [node name="GameOver" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

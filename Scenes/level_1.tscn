@@ -1,12 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://busgepgeh6w34"]
+[gd_scene load_steps=14 format=3 uid="uid://busgepgeh6w34"]
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_1kvxk"]
 [ext_resource type="Script" path="res://Scripts/gifts.gd" id="2_8eb68"]
 [ext_resource type="Script" path="res://Scripts/bullets.gd" id="3_pmapo"]
-[ext_resource type="AudioStream" uid="uid://bftsaq6tk53ig" path="res://Assets/My Chemical Romance - Helena (8-bit Cover).mp3" id="5_h3bos"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgkrc"]
-bg_color = Color(0.501961, 0.505882, 0.505882, 0.258824)
+[ext_resource type="AudioStream" uid="uid://c1vlxfmstnhyw" path="res://Assets/My Chemical Romance - Helena (8-bit Cover).mp3" id="5_h3bos"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bv7v2"]
 bg_color = Color(0.501961, 0.505882, 0.505882, 0.168627)
@@ -15,7 +12,7 @@ bg_color = Color(0.501961, 0.505882, 0.505882, 0.168627)
 bg_color = Color(0.501961, 0.505882, 0.505882, 0.392157)
 
 [sub_resource type="Theme" id="Theme_4skkw"]
-Button/styles/hover = SubResource("StyleBoxFlat_qgkrc")
+Button/styles/hover = SubResource("StyleBoxFlat_bv7v2")
 Button/styles/normal = SubResource("StyleBoxFlat_bv7v2")
 Button/styles/pressed = SubResource("StyleBoxFlat_l8ejo")
 
@@ -73,6 +70,7 @@ offset_bottom = 236.0
 grow_vertical = 2
 scale = Vector2(4, 4)
 focus_mode = 0
+mouse_filter = 1
 theme = SubResource("Theme_4skkw")
 action_mode = 0
 text = "<"
@@ -87,6 +85,7 @@ offset_bottom = 236.0
 grow_vertical = 2
 scale = Vector2(4, 4)
 focus_mode = 0
+mouse_filter = 1
 theme = SubResource("Theme_4skkw")
 action_mode = 0
 text = ">"
@@ -127,6 +126,7 @@ text = "RETRY"
 icon_alignment = 1
 
 [node name="back_to_menu" type="Button" parent="GameOver"]
+layout_mode = 0
 offset_left = 4.0
 offset_right = 101.0
 offset_bottom = 54.0

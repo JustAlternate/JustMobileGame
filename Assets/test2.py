@@ -1,8 +1,10 @@
 import librosa
 import json
 
+file_name = "te rickrollearon en 8bit"
+
 # Load the audio file
-audio_file_path = 'audio.mp3'
+audio_file_path = file_name+'.mp3'
 y, sr = librosa.load(audio_file_path)
 
 # Define parameters
@@ -38,7 +40,7 @@ print("max : "+str(max))
 print("min : "+str(min))
 
 # Save the data as a JSON file
-output_file = 'output.json'
+output_file = file_name+'.json'
 with open(output_file, 'w') as json_file:
     json.dump(intensity_values, json_file, indent=4)
 

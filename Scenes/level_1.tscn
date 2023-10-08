@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://busgepgeh6w34"]
+[gd_scene load_steps=13 format=3 uid="uid://busgepgeh6w34"]
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_1kvxk"]
 [ext_resource type="Script" path="res://Scripts/gifts.gd" id="2_8eb68"]
 [ext_resource type="Script" path="res://Scripts/bullets.gd" id="3_pmapo"]
-[ext_resource type="AudioStream" uid="uid://c1vlxfmstnhyw" path="res://Assets/My Chemical Romance - Helena (8-bit Cover).mp3" id="5_h3bos"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bv7v2"]
 bg_color = Color(0.501961, 0.505882, 0.505882, 0.168627)
@@ -138,7 +137,6 @@ text = "<= MENU"
 icon_alignment = 1
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_h3bos")
 
 [connection signal="button_down" from="left" to="." method="_on_left_button_down"]
 [connection signal="button_up" from="left" to="." method="_on_left_button_up"]

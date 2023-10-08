@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 2
+var speed:float = 2.0
 var angle = -(3*PI)/2
 var radius = 190
 var direction:int = 0

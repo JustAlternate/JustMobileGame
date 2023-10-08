@@ -58,12 +58,44 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 2
 
+[node name="Button6" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "1. At Dooms Gate - Easy"
+
 [node name="Button" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "1. Helena"
+text = "2. Helena - Normal"
+
+[node name="Button5" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "3. Gravity Falls - Normal"
 
 [node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "2. Never gonna"
+text = "4. TMNT - Normal"
+
+[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "5. Never Gonna - Hard"
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "6. Warriors - Hard"
+
+[node name="Button7" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "7. Megalovania - Insane"
+
+[node name="Button8" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "8. Through The Fire And The Flames - Impossible"
 
 [connection signal="pressed" from="back_to_menu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button8" to="." method="_on_button_8_pressed"]

@@ -1,7 +1,8 @@
 import librosa
+import sys
 import json
 
-file_name = "te rickrollearon en 8bit"
+file_name = sys.argv[1][:-4]
 
 # Load the audio file
 audio_file_path = file_name+'.mp3'

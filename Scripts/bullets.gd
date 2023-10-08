@@ -1,7 +1,7 @@
 extends Node2D
 
 var bullet_list:Array
-var speed:int = 200
+var speed:float = 200.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

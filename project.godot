@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.1", "Mobile")
 boot_splash/image="res://unknown.png"
 config/icon="res://unknown.png"
 
+[autoload]
+
+GlobalVARS="*res://Scripts/global_variables.gd"
+
 [display]
 
 window/size/viewport_width=424

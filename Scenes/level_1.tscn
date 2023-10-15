@@ -1,8 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://busgepgeh6w34"]
+[gd_scene load_steps=21 format=3 uid="uid://busgepgeh6w34"]
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_1kvxk"]
 [ext_resource type="Script" path="res://Scripts/gifts.gd" id="2_8eb68"]
 [ext_resource type="Script" path="res://Scripts/bullets.gd" id="3_pmapo"]
+[ext_resource type="AudioStream" uid="uid://dhqcxx263utfv" path="res://Assets/At Dooms Gate 8 Bit Cover Tribute to Doom 8 Bit Universe.mp3" id="4_vmlu6"]
+[ext_resource type="AudioStream" uid="uid://bftsaq6tk53ig" path="res://Assets/My Chemical Romance - Helena (8-bit Cover).mp3" id="5_a8ffm"]
+[ext_resource type="AudioStream" uid="uid://dnk0cscvtd24j" path="res://Assets/Gravity Falls Theme 8 Bit Tribute to Gravity Falls 8 Bit Universe.mp3" id="6_uruqa"]
+[ext_resource type="AudioStream" uid="uid://b2golu783fqby" path="res://Assets/Teenage Mutant Ninja Turtles Theme Song 8 Bit Remix Cover Version 8 Bit Universe.mp3" id="7_4158y"]
+[ext_resource type="AudioStream" uid="uid://4b0s4dj1c57j" path="res://Assets/te rickrollearon en 8bit.mp3" id="8_cwqql"]
+[ext_resource type="AudioStream" uid="uid://d2lx28hc4472i" path="res://Assets/Warriors 8 Bit Remix Cover Version Tribute to Imagine Dragons 8 Bit Universe.mp3" id="9_1t8fl"]
+[ext_resource type="AudioStream" uid="uid://baikcpe4nyf7m" path="res://Assets/Megalovania Undertale 8 Bit Universe Version.mp3" id="10_snatt"]
+[ext_resource type="AudioStream" uid="uid://cgwq3clqm0kot" path="res://Assets/Through The Fire and Flames 8 Bit Cover Tribute to Dragonforce 8 Bit Universe.mp3" id="11_5147b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bv7v2"]
 bg_color = Color(0.501961, 0.505882, 0.505882, 0.168627)
@@ -136,7 +144,29 @@ shortcut_in_tooltip = false
 text = "<= MENU"
 icon_alignment = 1
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vmlu6")
+
+[node name="MusicPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_a8ffm")
+
+[node name="MusicPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_uruqa")
+
+[node name="MusicPlayer4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_4158y")
+
+[node name="MusicPlayer5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_cwqql")
+
+[node name="MusicPlayer6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_1t8fl")
+
+[node name="MusicPlayer7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_snatt")
+
+[node name="MusicPlayer8" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_5147b")
 
 [connection signal="button_down" from="left" to="." method="_on_left_button_down"]
 [connection signal="button_up" from="left" to="." method="_on_left_button_up"]
@@ -145,4 +175,11 @@ icon_alignment = 1
 [connection signal="button_down" from="GameOver/GAMEOVER_BUTTON" to="." method="_on_gameover_button_button_down"]
 [connection signal="pressed" from="GameOver/GAMEOVER_BUTTON" to="." method="_on_gameover_button_pressed"]
 [connection signal="pressed" from="GameOver/back_to_menu" to="." method="_on_back_to_menu_pressed"]
-[connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
+[connection signal="finished" from="MusicPlayer1" to="." method="_on_music_player_finished"]
+[connection signal="finished" from="MusicPlayer2" to="." method="_on_music_player_finished"]
+[connection signal="finished" from="MusicPlayer3" to="." method="_on_music_player_finished"]
+[connection signal="finished" from="MusicPlayer4" to="." method="_on_music_player_finished"]
+[connection signal="finished" from="MusicPlayer5" to="." method="_on_music_player_finished"]
+[connection signal="finished" from="MusicPlayer6" to="." method="_on_music_player_finished"]
+[connection signal="finished" from="MusicPlayer7" to="." method="_on_music_player_finished"]
+[connection signal="finished" from="MusicPlayer8" to="." method="_on_music_player_finished"]

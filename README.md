@@ -24,5 +24,5 @@ And the leaderboard :
 
 # Installation
 
-The game is only available for android and the apk can be downloaded here : https://justalternate.fr/Godot_games/MonJeuWolaCPasDuHack.apk
+The game is only available for android and the apk can be downloaded here : [https://justalternate.fr/Godot_games/MonJeuWolaCPasDuHack.apk](https://justalternate.fr/Godot_games/Circle_Madness4.apk)https://justalternate.fr/Godot_games/Circle_Madness4.apk
 (make sure to allow non recognized apk)
